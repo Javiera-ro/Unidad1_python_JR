@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 def inicio(request):
-    contexto = {"nombre": "Javiera"}
+    contexto = {"nombre": ""}
     productos = [
         {"nombre": "Sensor 1", "valor": 100},
         {"nombre": "Sensor 2", "valor": 200},
