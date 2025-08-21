@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <style>
+        .verde { color: green; font-weight: bold; }
+        .rojo { color: red; font-weight: bold; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Panel de monitoreo</h1>
+
+    <table>
+        <tr>
+            <th>Dispositivo</th>
+            <th>Consumo actual</th>
+            <th>Límite permitido</th>
+            <th>Estado</th>
+        </tr>
+        {% for dispositivo in dispositivos %}
+        <tr>
+            <td>{{ dispositivo.nombre }}</td>
+            <td>{{ dispositivo.consumo }}</td>
+            <td>{{ dispositivo.limite }}</td>
+            <td class="{{ dispositivo.clase_css }}">
+                    {{ dispositivo.estado }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><span class="verde">●</span> Dentro del límite | <span class="rojo">●</span> Excede el límite</p>
+</body>
+</html>
